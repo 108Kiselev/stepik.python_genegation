@@ -1,8 +1,20 @@
-arr = list(map(int, input().split(' ')))
-dic = {}
-for a in arr:
-    dic[a] = 0
-arr.clear()
-for key in dic.keys():
-    arr.append(key)
-print(len(arr))
+n = int(input())
+arr = []
+res = ''
+flag = False
+for i in range(n):
+    arr.append(int(input()))
+k = int(input())
+for i in range(n):
+    if flag:
+        break
+    for j in range(n):
+        if i != j:
+            if arr[i] * arr[j] == k:
+                res = 'ДА'
+                print(res)
+                flag = True
+                break
+else:
+    res = 'НЕТ'
+    print(res)
