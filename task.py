@@ -1,5 +1,8 @@
-arr = list(input().split(' '))
-a = arr.pop(-1)
-arr.insert(0, a)
-for i in arr:
-    print(i, end=' ')
+arr = list(map(int, input().split(' ')))
+dic = {}
+for a in arr:
+    dic[a] = 0
+arr.clear()
+for key in dic.keys():
+    arr.append(key)
+print(len(arr))
