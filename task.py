@@ -1,20 +1,18 @@
-n = int(input())
-arr = []
-res = ''
-flag = False
-for i in range(n):
-    arr.append(int(input()))
-k = int(input())
-for i in range(n):
-    if flag:
-        break
-    for j in range(n):
-        if i != j:
-            if arr[i] * arr[j] == k:
-                res = 'ДА'
-                print(res)
-                flag = True
-                break
-else:
-    res = 'НЕТ'
-    print(res)
+tim = input()
+rus = input()
+
+if tim == rus:
+    print('ничья')
+
+dic = {'ножницы': ('бумага', 'ящерица'),
+        'бумага': ('камень', 'Спок'),
+        'камень': ('ножницы', 'ящерица'),
+        'ящерица': ('Спок', 'бумага'),
+        'Спок': ('ножницы', 'камень')}
+
+for key, value in dic.items():
+    if tim in key and rus in value:
+        print('Тимур')
+    else:
+        if rus in key and tim in value:
+            print('Руслан')
