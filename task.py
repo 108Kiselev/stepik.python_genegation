@@ -1,15 +1,10 @@
-num = input()
-count = 0
+n = int(input())
+k = int(input())
 arr = []
-if len(num) < 4:
-    print(num)
-else:
-    for i in num:
-        arr.append(i)
-    for i in range(len(arr), 0, -1):
-        if count == 3:
-            arr.insert(i, ',')
-            count = 0
-        count += 1
-for i in arr:
-    print(i, end='')
+for i in range(1, n+1):
+    arr.append(i)
+i = 0
+while len(arr) > 1:
+     i = (i+(k)-1)%(len(arr))
+     arr.remove(arr[i])
+print(arr[0])
