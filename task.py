@@ -1,29 +1,18 @@
-n = int(input())
-count = 1
-res = []
+st = input()
+st += ' запретил букву'
 
-for i in range(n):
-    idref = list(input())
-    if 'a' in idref:
-        idref = idref[idref.index('a')::]
-        if 'n' in idref:
-            idref = idref[idref.index('n')::]
-            if 't' in idref:
-                idref = idref[idref.index('t')::]
-                if 'o' in idref:
-                    idref = idref[idref.index('o')::]
-                    if 'n' in idref:
-                        idref = idref[idref.index('n')::]
-                        res.append(count)
-    count += 1
-for r in res:
-    print(r, end=' ')
-'''osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen
-anton
-aoooooooooontooooo
-elelelelelelelelelel
-ntoneeee
-tonee
-253235235a5323352n25235352t253523523235oo235523523523n
-antoooooooooooooooooooooooooooooooooooooooooooooooooooon
-unton'''
+letters = ['а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з',
+         'и', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 
+         'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 
+         'ъ', 'ы', 'ь', 
+         'э', 'ю', 'я']
+
+for i in range(len(letters)):
+    if letters[i] not in st:
+        continue
+    else:
+        if st[0] == ' ':
+            st = st.replace(' ', '', 1)
+        st = st.replace('  ', ' ', 3).strip()
+        print(st, letters[i])
+        st = st.replace(letters[i], '')
