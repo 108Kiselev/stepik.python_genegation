@@ -1,13 +1,15 @@
 num = input()
-st = ''
-if len(num) == 5:
-    for i in range(len(num)-1, -1, -1):
-        st += num[i]
-    print(int(st))
-elif len(num) == 6:
-    print(num[0], end='')
-    for i in range(len(num)-1, 0, -1):
-        st += num[i]
-    print(st)
+count = 0
+arr = []
+if len(num) < 4:
+    print(num)
 else:
-    print('Длина числа не соответствует условию!')
+    for i in num:
+        arr.append(i)
+    for i in range(len(arr), 0, -1):
+        if count == 3:
+            arr.insert(i, ',')
+            count = 0
+        count += 1
+for i in arr:
+    print(i, end='')
