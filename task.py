@@ -1,18 +1,29 @@
-tim = input()
-rus = input()
+n = int(input())
+count = 1
+res = []
 
-if tim == rus:
-    print('ничья')
-
-dic = {'ножницы': ('бумага', 'ящерица'),
-        'бумага': ('камень', 'Спок'),
-        'камень': ('ножницы', 'ящерица'),
-        'ящерица': ('Спок', 'бумага'),
-        'Спок': ('ножницы', 'камень')}
-
-for key, value in dic.items():
-    if tim in key and rus in value:
-        print('Тимур')
-    else:
-        if rus in key and tim in value:
-            print('Руслан')
+for i in range(n):
+    idref = list(input())
+    if 'a' in idref:
+        idref = idref[idref.index('a')::]
+        if 'n' in idref:
+            idref = idref[idref.index('n')::]
+            if 't' in idref:
+                idref = idref[idref.index('t')::]
+                if 'o' in idref:
+                    idref = idref[idref.index('o')::]
+                    if 'n' in idref:
+                        idref = idref[idref.index('n')::]
+                        res.append(count)
+    count += 1
+for r in res:
+    print(r, end=' ')
+'''osfjwoiergwoignaewpjofwoeijfnwfonewfoignewtowenffnoeiwowjfninoiwfen
+anton
+aoooooooooontooooo
+elelelelelelelelelel
+ntoneeee
+tonee
+253235235a5323352n25235352t253523523235oo235523523523n
+antoooooooooooooooooooooooooooooooooooooooooooooooooooon
+unton'''
