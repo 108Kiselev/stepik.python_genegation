@@ -1,16 +1,17 @@
-st = input()
-st = st.replace(' ', '', 500) + '0'
+def chunked(lis , n):
+    res = []
+    i = 0
+    m = n
 
-sli = []
-res = []
+    while True:
+        res.append(lis[i:m])
+        i += n
+        m += n
+        if i >= len(lis):
+            break
+    return res
 
-sli.append(st[0])
+lis = input().split()
+n = int(input())
 
-for i in range(len(st)-1):
-    if st[i] == st[i+1]:
-        sli.append(st[i+1])
-    else:
-        res.append(sli)
-        sli = []
-        sli.append(st[i+1])
-print(res)
+print(chunked(lis , n))
