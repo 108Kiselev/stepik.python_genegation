@@ -1,12 +1,8 @@
-n, m = int(input()), int(input())
-mat = [[input() for i in range(m)] for j in range(n)]
+n = int(input())
+mat = list(list(map(int, input().split())) for i in range(n))
 
-for i in mat:
-    print(*i)
+sum = 0
 
-print()
-
-for i in range(m):
-    for j in range(n):
-        print(mat[j][i], end = ' ')
-    print()
+for i in range(len(mat)):
+    sum += mat[i][i]
+print(sum)
