@@ -1,14 +1,10 @@
 n = int(input())
 mat = list(list(map(int, input().split())) for i in range(n))
+j = -1
 
-def matrix(mat, n):
-    flag = True
-    for i in range(n):
-        for j in range(n):
-            if i == j:
-                continue
-            if mat[i][j] != mat[j][i]:
-                flag = False
-    return flag
+for i in range(n):
+    mat[i][i], mat[j][i] = mat[j][i], mat[i][i]
+    j -= 1
 
-print('NO' if matrix(mat, n) == False else 'YES')
+for i in mat:
+    print(*i)
