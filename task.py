@@ -1,9 +1,14 @@
 n, m = int(input()), int(input())
-mult = [[0 for i in range(m)] for j in range(n)]
+mat = list(list(map(int, input().split())) for i in range(n))
 
-for i in range(len(mult)):
-    for j in range(len(mult[i])):
-        mult[i][j] = i * j
+iin = 0
+jin = 0
+maximum = mat[0][0]
 
-for m in mult:
-    print(*m)
+for i in range(n):
+    for j in range(m):
+        if mat[i][j] > maximum:
+            maximum = mat[i][j]
+            iin = i
+            jin = j
+print(iin, jin)
