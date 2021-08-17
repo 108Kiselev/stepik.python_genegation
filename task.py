@@ -1,16 +1,14 @@
-n, m = int(input()), int(input())
+n = int(input())
 mat = list(list(map(int, input().split())) for i in range(n))
-toCh = [int(i) for i in input().split()]
 
-submat = [['0'] * n for i in range(m)]
+def matrix(mat, n):
+    flag = True
+    for i in range(n):
+        for j in range(n):
+            if i == j:
+                continue
+            if mat[i][j] != mat[j][i]:
+                flag = False
+    return flag
 
-for i in range(m):
-    for j in range(len(mat)):
-        submat[i][j] = mat[j][i]
-
-submat[toCh[0]], submat[toCh[1]] = submat[toCh[1]], submat[toCh[0]]
-
-for i in range(len(submat[0])):
-    for j in range(len(submat)):
-        print(submat[j][i], end = ' ')
-    print()
+print('NO' if matrix(mat, n) == False else 'YES')
