@@ -1,24 +1,19 @@
-'''inp = input().split()
-n = int(inp[0])
-m = int(inp[1])'''
+'''n = input()'''
 
 
-def fun(n, m):
-    mat = [['.'] * m for i in range(n)]
+def fun(n):
+    mat = [[0] * n for i in range(n)]
 
+    #j = n - i - 1 - j на побочной диаг
     for i in range(n):
-        for j in range(m):
-            if i % 2 == 1:
-                if j % 2 != 1:
-                    mat[i][j] = '*'
-            else:
-                if j % 2 == 1:
-                    mat[i][j] = '*'
+        for j in range(n):
+            if j == n - i - 1:
+                mat[i][j] = 1
+            if i > n - 1 - j:
+                mat[i][j] = 2
     for i in mat:
         print(*i)
     
-fun(3, 4)
+fun(4)
 print()
-fun(2, 2)
-print()
-fun(1, 8)
+fun(3)
