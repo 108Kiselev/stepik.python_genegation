@@ -2,18 +2,21 @@
 
 
 def fun(n, m):
-    subm = []
+    mat = [['a'] * m for i in range(n)]
     k = 1
-    for i in range(m):
-        subm.append(k)
-        k += 1
-    print(*subm)
-
-    for i in range(n-1):
-        subm.insert(m, subm.pop(0))
-        print(*subm)
+    for i in range(n):
+        if i % 2 == 0:
+            for j in range(m):
+                mat[i][j] = k
+                k += 1
+        else:
+            for j in range(1, m+1):
+                mat[i][-j] = k
+                k += 1
+    for i in mat:
+        print(*i)
 
     
-fun(5, 5)
+fun(3, 5)
 print()
-fun(3, 7)
+fun(5, 5)
