@@ -2,12 +2,12 @@
 
 
 def fun(n):
-    mat = [[0] * n for i in range(n)]
+    mat = [[1] * n for i in range(n)]
     
     for i in range(n):
         for j in range(n):
-            if i == j or j == n - i - 1:
-                mat[i][j] = 1
+            if i > j and i < n - 1 - j or i < j and i > n - 1 - j:
+                mat[i][j] = 0
 
     for i in mat:
         print(*i)
