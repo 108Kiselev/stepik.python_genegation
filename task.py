@@ -1,19 +1,18 @@
-'''n = input()'''
+'''n = int(input())'''
 
 
-def fun(n):
-    mat = [[0] * n for i in range(n)]
+def fun(n, m):
+    #mat = [[0] * m for i in range(n)]
+    count = 1
 
-    #j = n - i - 1 - j на побочной диаг
     for i in range(n):
-        for j in range(n):
-            if j == n - i - 1:
-                mat[i][j] = 1
-            if i > n - 1 - j:
-                mat[i][j] = 2
-    for i in mat:
-        print(*i)
+        for j in range(m):
+            print(str(count).ljust(3), end =' ')
+            count += 1
+        print()
     
-fun(4)
+fun(3, 4)
 print()
-fun(3)
+fun(4, 7)
+print()
+fun(6, 6)
