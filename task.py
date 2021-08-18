@@ -1,16 +1,17 @@
 '''n = int(input())'''
 
 
-def fun(n, m):
-    for i in range(n):
-        count = 1 + i
-        for j in range(m):
-            print(str(count).ljust(3), end =' ')
-            count += n
-        print()
+def fun(n):
+    mat = [[0] * n for i in range(n)]
     
-fun(3, 7)
+    for i in range(n):
+        for j in range(n):
+            if i == j or j == n - i - 1:
+                mat[i][j] = 1
+
+    for i in mat:
+        print(*i)
+    
+fun(4)
 print()
-fun(6, 6)
-print()
-fun(7, 1)
+fun(5)
