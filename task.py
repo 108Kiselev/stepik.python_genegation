@@ -2,17 +2,15 @@
 
 
 def fun(n, m):
-    #mat = [[0] * m for i in range(n)]
-    count = 1
-
     for i in range(n):
+        count = 1 + i
         for j in range(m):
             print(str(count).ljust(3), end =' ')
-            count += 1
+            count += n
         print()
     
-fun(3, 4)
-print()
-fun(4, 7)
+fun(3, 7)
 print()
 fun(6, 6)
+print()
+fun(7, 1)
