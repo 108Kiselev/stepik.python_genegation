@@ -1,22 +1,27 @@
-'''n = int(input())'''
+'''
+inp = input().split()
+n = int(inp[0])
+m = int(inp[1])
+'''
 
 
 def fun(n, m):
-    mat = [['a'] * m for i in range(n)]
-    k = 1
-    for i in range(n):
-        if i % 2 == 0:
+    mat = [[1] * m for i in range(n)]
+
+    k = 2
+    coe = 1
+    for x in range(n + m - 2):
+        for i in range(n):
             for j in range(m):
-                mat[i][j] = k
-                k += 1
-        else:
-            for j in range(1, m+1):
-                mat[i][-j] = k
-                k += 1
+                if i + j == coe:
+                    mat[i][j] = k
+                    k += 1
+        coe += 1
+
     for i in mat:
         print(*i)
 
     
 fun(3, 5)
 print()
-fun(5, 5)
+fun(2, 2)
