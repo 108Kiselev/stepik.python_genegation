@@ -1,34 +1,33 @@
-'''inp = input().split()
-n1 = int(inp[0])
-m1 = int(inp[1])
+'''
+n = int(input())
+mator = [list(map(int, input().split())) for i in range(n)]
+m = int(input())
+'''
 
-mat1 = [list(map(int, input().split())) for i in range(n1)]
-emp = input()
-
-inp = input().split()
-n2 = int(inp[0])
-m2 = int(inp[1])
-mat2 = [list(map(int, input().split())) for i in range(n2)]'''
-
-def fun(n1, m1, mat1, n2, m2, mat2):
-    matr = [['.'] * n1 for i in range(n1)]
+def mXm(n, mat1, mat2, cou, m):
+    matr = [['.'] * n for i in range(n)]
     sum = 0
 
-    for i in range(n1):
-        for j in range(m2):
-            for x in range(m1):
+    for i in range(n):
+        for j in range(n):
+            for x in range(n):
                 sum += mat1[i][x] * mat2[x][j]
             matr[i][j] = sum
             sum = 0
+    cou += 1
+    if cou == m: 
+        for i in matr:
+            print(*i)
+        return 
+    mXm(n, matr, mat2, cou, m)
 
-                
 
-    for i in matr:
-        print(*i)
+mXm(3, [[1, 2, 1],
+        [3, 3, 3],
+        [1, 2, 1]], 
+    [[1, 2, 1],
+    [3, 3, 3],
+    [1, 2, 1]], 1, 5)
 
-fun(3, 3, [[2, 4, 6],
-           [1, 3, 5],
-           [0, 4, 8]], 
-    3, 3, [[6, 3, 1],
-           [9, 6, 3],
-           [0, 2, 0]])
+'''for i in res:
+    print(*i)'''
