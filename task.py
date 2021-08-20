@@ -1,14 +1,12 @@
-st = input().split()
 n = int(input())
 
-#res = [['.'] * (len(st)//3 + 1) for i in range(n)]
-res = []
-subres = []
-x = 0
+mat = list(list(map(int, input().split())) for i in range(n))
+m = mat[-n][-1]
+
+#i > n - 1 - j
 for i in range(n):
-    for j in range(x, len(st), n):
-        subres.append(st[j])
-    x += 1
-    res.append(subres)
-    subres = []
-print(res)
+    for j in range(n):
+        if i >= n - 1 - j:
+            if mat[i][j] > m:
+                m = mat[i][j]
+print(m)
