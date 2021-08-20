@@ -1,32 +1,34 @@
-'''n = int(input())
-mat = list(list(map(int, input().split())) for i in range(n))
+'''n = input()
 '''
-def fun(mat, n):
-    for i in range(1, n+1):
-        for j in range(n):
-            if i not in mat[j]:
-                print('NO')
-                return
 
-    smat = [['.'] * n for i in range(n)]
-    for i in range(n):
-        for j in range(n):
-            smat[i][j] = mat[j][i]
-
-    for i in range(1, n+1):
-        for j in range(n):
-            if i not in smat[j]:
-                print('NO')
-                return
-    print('YES')
+def fun(n):
+    keys = {'a': 0,
+            'b': 1,
+            'c': 2,
+            'd': 3,
+            'e': 4,
+            'f': 5,
+            'g': 6,
+            'h': 7}
+    mat = [['.'] * 8 for i in range(8)]
+    y = int(n[1])-1
+    x = int(keys.get(n[0]))
+    mat[y][x] = 'Q'
     
-    
+    for i in range(8):
+        mat[i][x] = '*'
+        mat[y][i] = '*'
+        if x-i >= 0 and y-i >= 0: mat[y-i][x-i] = '*'
+        if y+i < 8 and x+i < 8: mat[y+i][x+i] = '*'
+        if x-i >= 0 and y+i < 8: mat[y+i][x-i] = '*'
+        if y-i >= 0 and x+i < 8: mat[y-i][x+i] = '*'
+            
+    mat[y][x] = 'Q'
 
-fun([[2, 3, 4, 1],
-    [3, 4, 1, 2],
-    [4, 1, 2, 3],
-    [1, 2, 3, 4]], 4)
+    for i in range(-1, -len(mat)-1, -1):
+        print(*mat[i])
+fun('a1')
 print()
-fun([[1, 2, 3],
-    [3, 2, 1],
-    [2, 3, 4]], 3)
+fun('c4')
+print()
+fun('h5')
