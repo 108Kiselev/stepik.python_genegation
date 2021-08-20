@@ -1,23 +1,32 @@
 '''n = int(input())
-#mat = list(list(map(int, input().split())) for i in range(n))'''
-
-'''n = int(input())
 mat = list(list(map(int, input().split())) for i in range(n))
 '''
-def matrix(mat, n):
-    #j = n - i - 1 побоч диаг
-    j = 1-n
-    if mat[0][0] == mat[-1][-1]:
-        for i in range(n-1):
-            if mat[i][n - i - 1-1] != mat[i+1][n - i - 1]: return 0
-    else: return 0
+def fun(mat, n):
+    for i in range(1, n+1):
+        for j in range(n):
+            if i not in mat[j]:
+                print('NO')
+                return
 
+    smat = [['.'] * n for i in range(n)]
+    for i in range(n):
+        for j in range(n):
+            smat[i][j] = mat[j][i]
 
-    return 1
+    for i in range(1, n+1):
+        for j in range(n):
+            if i not in smat[j]:
+                print('NO')
+                return
+    print('YES')
+    
+    
 
-print('YES' if matrix([[0, 3, 10],
-                        [4, 9, 3],
-                        [7, 4, 0]], 3) else 'NO') #mat, n
-
-print('YES' if matrix([[1, 2],
-                        [3, 4]], 2) else 'NO')
+fun([[2, 3, 4, 1],
+    [3, 4, 1, 2],
+    [4, 1, 2, 3],
+    [1, 2, 3, 4]], 4)
+print()
+fun([[1, 2, 3],
+    [3, 2, 1],
+    [2, 3, 4]], 3)
