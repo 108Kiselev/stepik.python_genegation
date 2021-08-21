@@ -1,17 +1,15 @@
 '''n = int(input())
-std = [input().split() for i in range(n)]
+#std = [input().split() for i in range(n)]
 '''
 
-def fun(n, std):
-    for i in std:
-        print(*i)
-    print()
-    for i in std:
-        if i[1] == '4' or i[1] == '5':
-            print(*i)
+def fun(n):
+    f1, f2, f3 = 1, 1, 1
+    for i in range(n):
+        print(f1, end = ' ')
+        f1, f2, f3 = f2, f3, f1 + f2 + f3
 
-fun(5, [['Круглов', '4'],
-        ['Кузнецов', '5'],
-        ['Федин', '4'],
-        ['Тарасов', '2'],
-        ['Словецкий', '3']])
+fun(10)
+print()
+fun(1)
+print()
+fun(2)
