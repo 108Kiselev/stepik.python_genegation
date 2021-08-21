@@ -1,21 +1,17 @@
 '''n = int(input())
+std = [input().split() for i in range(n)]
 '''
 
-def fun(n):
-    mat = [['.'] * n for i in range(n)]
-    mat[0][0] = 0
-
-    for x in range(1, n+1):
-        for i in range(x, n):
-            mat[i-x][i] = x
-            mat[i][i-x] = x
-            mat[i][i] = 0  
-
-    for i in mat:
+def fun(n, std):
+    for i in std:
         print(*i)
-    
-fun(5)
-print()
-fun(2)
-print()
-fun(3)
+    print()
+    for i in std:
+        if i[1] == '4' or i[1] == '5':
+            print(*i)
+
+fun(5, [['Круглов', '4'],
+        ['Кузнецов', '5'],
+        ['Федин', '4'],
+        ['Тарасов', '2'],
+        ['Словецкий', '3']])
