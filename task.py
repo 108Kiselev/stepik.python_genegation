@@ -1,5 +1,6 @@
-n = int(input())
-lis = ''
-for i in range(n):
-    lis += input().lower()
-print(len(set(lis)))
+n = list(map(int, input().split()))
+for i in range(len(n)):
+    #print(set(n[0:i:]))
+    if n[i] in set(n[0:i:]):
+        print('YES')
+    else: print('NO')
