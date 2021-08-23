@@ -1,6 +1,9 @@
-n = list(map(int, input().split()))
-for i in range(len(n)):
-    #print(set(n[0:i:]))
-    if n[i] in set(n[0:i:]):
-        print('YES')
-    else: print('NO')
+n = int(input())
+res = []
+for i in range(n):
+    s = set(input())
+    res.append(s)
+s1 = res[0]
+for i in range(1, n):
+    s1 &= res[i]
+print(*sorted(s1))
