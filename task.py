@@ -1,12 +1,14 @@
-m, n = [int(input()) for i in range(2)]
-math = [input() for i in range(m)]
-inf = [input() for i in range(n)]
-i = 0
-while len(math) != len(set(math)):
-    math[i], inf[i] = inf[i], math[i]
-    i += 1
-math = set(math)
-inf = set(inf)
+m = int(input())
+lis = []
+for i in range(m):
+    n = int(input())
+    slis = []
+    for i in range(n):
+        slis.append(input())
+    lis.append(slis)
+res = set(lis[0])
+for i in range(1, len(lis)):
+    s = set(lis[i])
+    res &= s
 
-res = (math - inf) | (inf - math)
-print(len(res) if len(res) else 'NO')
+print(*sorted(res), sep='\n')
