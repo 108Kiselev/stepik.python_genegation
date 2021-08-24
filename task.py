@@ -1,9 +1,6 @@
+m = int(input())
 n = int(input())
-res = []
-for i in range(n):
-    s = set(input())
-    res.append(s)
-s1 = res[0]
-for i in range(1, n):
-    s1 &= res[i]
-print(*sorted(s1))
+libr = set([input() for i in range(m)])
+task = [input() for i in range(n)]
+for i in task:
+    print('YES' if i in libr else 'NO')
