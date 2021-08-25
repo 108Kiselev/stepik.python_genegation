@@ -1,14 +1,8 @@
-m = int(input())
-lis = []
-for i in range(m):
-    n = int(input())
-    slis = []
-    for i in range(n):
-        slis.append(input())
-    lis.append(slis)
-res = set(lis[0])
-for i in range(1, len(lis)):
-    s = set(lis[i])
-    res &= s
-
-print(*sorted(res), sep='\n')
+courses = {'CS101' : ['3004', 'Хайнс', '8:00'], 
+           'CS102' : ['4501', 'Альварадо', '9:00'], 
+           'CS103' : ['6755', 'Рич', '10:00'], 
+           'CS101' : ['1244', 'Берк','11:00'], 
+           'CS101' : ['1411', 'Ли', '13:00']}
+n = input()
+print(n + ': ', end='')
+print(*courses.get(n), sep=', ')
