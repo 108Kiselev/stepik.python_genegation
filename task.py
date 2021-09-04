@@ -1,19 +1,20 @@
-pets = [('Hatiko', 'Parker', 'Wilson', 50),
-        ('Rusty', 'Josh', 'King', 25),
-        ('Fido', 'John', 'Smith', 28),
-        ('Butch', 'Jake', 'Smirnoff', 18),
-        ('Odi', 'Emma', 'Wright', 18),
-        ('Balto', 'Josh', 'King', 25),
-        ('Barry', 'Josh', 'King', 25),
-        ('Snape', 'Hannah', 'Taylor', 40),
-        ('Horry', 'Martha', 'Robinson', 73),
-        ('Giro', 'Alex', 'Martinez', 65),
-        ('Zooma', 'Simon', 'Nevel', 32),
-        ('Lassie', 'Josh', 'King', 25),
-        ('Chase', 'Martha', 'Robinson', 73),
-        ('Ace', 'Martha', 'Williams', 38),
-        ('Rocky', 'Simon', 'Nevel', 32)]
-result = {}
-for i in pets:
-        result[i[-3:]] = result.get(i[-3:], []) + [i[-4]]
-print(result)
+s = input().lower()
+signs = ['.', ',', '!', '?', ':', ';', '-']
+for i in s:
+        if i in signs:
+                s = s.replace(i, '', 500)
+
+res = {}
+for i in s.split():
+        res[i] = res.get(i, 0) + 1
+
+d = 1000
+for v in res.values():
+        if v <= d:
+                d = v
+            
+lis = sorted(res)
+for i in lis:
+        if res[i] == d:
+                print(i)
+                break
