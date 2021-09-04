@@ -1,20 +1,10 @@
-s = input().lower()
-signs = ['.', ',', '!', '?', ':', ';', '-']
+s = input().split()
+
+counter = {}
 for i in s:
-        if i in signs:
-                s = s.replace(i, '', 500)
-
-res = {}
-for i in s.split():
-        res[i] = res.get(i, 0) + 1
-
-d = 1000
-for v in res.values():
-        if v <= d:
-                d = v
-            
-lis = sorted(res)
-for i in lis:
-        if res[i] == d:
-                print(i)
-                break
+        if i in counter:
+                print(i + '_' + str(counter[i]), end = ' ')
+                counter[i] = counter.get(i, 0) + 1
+        else:
+                print(i, end = ' ')
+                counter[i] = counter.get(i, 0) + 1
