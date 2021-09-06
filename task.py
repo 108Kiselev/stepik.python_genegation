@@ -1,12 +1,20 @@
-n = int(input())
+n = input().lower()
+m = input().lower()
+s = ['.', ',', '!', '?', ':', ';', '-', ' ']
 
-d = {}
+for i in n:
+        if i in s:
+                n = n.replace(i, '', 500)
+for i in m:
+        if i in s:
+                m = m.replace(i, '', 500)
 
-for i in range(n):
-        s = input().split(': ')
-        d[s[0].lower()] = s[1]
-m = int(input())
+nn = {}
+mm = {}
 
-for i in range(m):
-        k = input().lower()
-        print(d.get(k, 'Не найдено'))
+for i in n:
+        nn[i] = nn.get(i, 0) + 1
+
+for i in m:
+        mm[i] = mm.get(i, 0) + 1
+print("YES" if nn == mm else "NO")
