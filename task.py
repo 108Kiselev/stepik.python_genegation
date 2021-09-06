@@ -1,10 +1,11 @@
 d = {}
 for i in range(int(input())):
-        key, val = input().split()
+        key, *val = input().split()
         d[key] = val
-a = input()
-for key, val in d.items():
-        if key == a:
-                print(val)
-        elif val == a:
-                print(key)
+l = []
+for i in range(int(input())):
+        x = input()
+        for key, val in d.items():
+                if x in val:
+                        l.append(key)
+print(*l, sep='\n')
