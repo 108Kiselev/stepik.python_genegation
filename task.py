@@ -1,11 +1,14 @@
 d = {}
 for i in range(int(input())):
-        key, *val = input().split()
-        d[key] = val
-l = []
+        val, key = input().lower().split()
+        if key in d:
+                d[key] += [val]
+        else: d[key] = [val]
 for i in range(int(input())):
-        x = input()
+        a = input().lower()
         for key, val in d.items():
-                if x in val:
-                        l.append(key)
-print(*l, sep='\n')
+                if a == key:
+                        print(*val, sep=' ')
+                        break
+        else: 
+            print('абонент не найден')
