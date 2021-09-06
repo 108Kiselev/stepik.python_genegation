@@ -1,20 +1,10 @@
-n = input().lower()
-m = input().lower()
-s = ['.', ',', '!', '?', ':', ';', '-', ' ']
-
-for i in n:
-        if i in s:
-                n = n.replace(i, '', 500)
-for i in m:
-        if i in s:
-                m = m.replace(i, '', 500)
-
-nn = {}
-mm = {}
-
-for i in n:
-        nn[i] = nn.get(i, 0) + 1
-
-for i in m:
-        mm[i] = mm.get(i, 0) + 1
-print("YES" if nn == mm else "NO")
+d = {}
+for i in range(int(input())):
+        key, val = input().split()
+        d[key] = val
+a = input()
+for key, val in d.items():
+        if key == a:
+                print(val)
+        elif val == a:
+                print(key)
