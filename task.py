@@ -1,14 +1,14 @@
-d = {}
+st = input()
+dd = {}
 for i in range(int(input())):
-        val, key = input().lower().split()
-        if key in d:
-                d[key] += [val]
-        else: d[key] = [val]
-for i in range(int(input())):
-        a = input().lower()
-        for key, val in d.items():
-                if a == key:
-                        print(*val, sep=' ')
-                        break
-        else: 
-            print('абонент не найден')
+        kv = input()
+        dd[kv[-1]] = kv[0]
+
+do = {}
+for i in st:
+        do[i] = do.get(i, 0) + 1
+
+res = ''
+for s in st:
+        res += dd[str(do[s])]
+print(res)
