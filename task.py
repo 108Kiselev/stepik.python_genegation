@@ -1,14 +1,10 @@
-st = input()
-dd = {}
-for i in range(int(input())):
-        kv = input()
-        dd[kv[-1]] = kv[0]
+s = input().split()
 
-do = {}
-for i in st:
-        do[i] = do.get(i, 0) + 1
-
-res = ''
-for s in st:
-        res += dd[str(do[s])]
-print(res)
+counter = {}
+for i in s:
+        if i in counter:
+                print(counter[i]+1, end = ' ')
+                counter[i] = counter.get(i, 0) + 1
+        else:
+                print(1, end = ' ')
+                counter[i] = 1
