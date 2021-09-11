@@ -1,4 +1,13 @@
-def merge(values):
-    d = {k: {values[i].get(k) for i in range(len(values)) if values[i].get(k) != None} for i in range(len(values)) for k in values[i].keys()}
-    return d
-print(merge([{'a': 1, 'b': 2}, {'b': 10, 'c': 100}, {'a': 1, 'b': 17, 'c': 50}, {'a': 5, 'd': 777}]))
+acts = {'write': 'W',
+        'read': 'R',
+        'execute': 'X'}
+
+files = {}
+
+for n in range(int(input())):
+    i = input().split()
+    files[i[0]] = i[1:]
+
+for m in range(int(input())):
+    i = input().split()
+    print('OK' if acts.get(i[0]) in files.get(i[1]) else 'Access denied')
