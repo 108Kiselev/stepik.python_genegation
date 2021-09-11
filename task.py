@@ -1,10 +1,18 @@
-s = input().split()
+d = {1: ['A', 'E', 'I', 'L', 'N', 'O', 'R', 'S', 'T', 'U'],
+    2: ['D', 'G'],
+    3: ['B', 'C', 'M', 'P'],
+    4: ['F', 'H', 'V', 'W', 'Y'],
+    5: ['K'],
+    8: ['J', 'X'],
+    10: ['Q', 'Z']}
 
-counter = {}
+s = input()
+res = 0
+
 for i in s:
-        if i in counter:
-                print(counter[i]+1, end = ' ')
-                counter[i] = counter.get(i, 0) + 1
-        else:
-                print(1, end = ' ')
-                counter[i] = 1
+    for k, v in d.items():
+        if i in v:
+            res += k
+            break
+
+print(res)
