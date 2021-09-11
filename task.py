@@ -1,18 +1,13 @@
-d = {1: ['A', 'E', 'I', 'L', 'N', 'O', 'R', 'S', 'T', 'U'],
-    2: ['D', 'G'],
-    3: ['B', 'C', 'M', 'P'],
-    4: ['F', 'H', 'V', 'W', 'Y'],
-    5: ['K'],
-    8: ['J', 'X'],
-    10: ['Q', 'Z']}
+def build_query_string (d):
+    sk = sorted(d)
+    q = ''
+    if len(sk) == 1:
+        q = str(sk[0])+'='+str(d.get(sk[0]))
+        return q
+    else:
+        for i in sk:
+            q += str(i)+'='+str(d.get(i))+'&'
+        q = q[:-1]
+        return q
 
-s = input()
-res = 0
-
-for i in s:
-    for k, v in d.items():
-        if i in v:
-            res += k
-            break
-
-print(res)
+print(build_query_string({'name': 'timur'}))
