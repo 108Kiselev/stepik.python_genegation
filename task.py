@@ -1,9 +1,13 @@
-import random as r
-import string as st
+import random as ran
 
-def generate_index():
-    #st.ascii_uppercase
-    #r.randrange(100)
-    #AB23_56VG
-    pc = r.choice(st.ascii_uppercase) + r.choice(st.ascii_uppercase) + str(r.randrange(100)) + '_' + str(r.randrange(100)) + r.choice(st.ascii_uppercase) + r.choice(st.ascii_uppercase)
-    print(pc)
+num = ''
+s = set()
+for i in range(100):
+    while len(s) < 100:
+        while len(num) < 7:
+            num += str(ran.randrange(10))
+            if num[0] == '0':
+                num = num[1:]
+        s.add(int(num))
+        num = ''
+print(*s, sep='\n')
