@@ -1,13 +1,16 @@
 import random as ran
 
-num = ''
+bingo = []
 s = set()
-for i in range(100):
-    while len(s) < 100:
-        while len(num) < 7:
-            num += str(ran.randrange(10))
-            if num[0] == '0':
-                num = num[1:]
-        s.add(int(num))
-        num = ''
-print(*s, sep='\n')
+sublis = []
+for i in range(5):
+    while len(sublis) < 5:
+        rnum = ran.randint(1, 75)
+        if rnum not in s:
+            sublis.append(rnum)
+            s.add(rnum)
+    bingo.append(sublis)
+    sublis = []
+bingo[2][2] = 0
+for i in bingo:
+    print(*i)
