@@ -1,16 +1,25 @@
 import random as ran
 
-bingo = []
-s = set()
-sublis = []
-for i in range(5):
-    while len(sublis) < 5:
-        rnum = ran.randint(1, 75)
-        if rnum not in s:
-            sublis.append(rnum)
-            s.add(rnum)
-    bingo.append(sublis)
-    sublis = []
-bingo[2][2] = 0
-for i in bingo:
-    print(*i)
+'''names = []
+for _ in range(int(input())):
+    names.append(input())
+'''
+def fr(names):
+    d = dict()
+    unfNames = []
+    i = 0
+    while len(d) < len(names) or i < len(names):
+        fr = names[i]
+        names.remove(fr)
+        unf = ran.choice(names)
+        names.insert(i, fr)
+        if unf in unfNames:
+            continue
+        unfNames.append(unf)
+        d[fr] = unf
+        i += 1
+
+    for k, v in d.items():
+        print(k, '-', v)
+
+fr(['Светлана Зуева', 'Аркадий Белых', 'Борис Боков'])
