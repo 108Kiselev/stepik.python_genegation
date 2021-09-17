@@ -1,25 +1,23 @@
 import random as ran
+import string as st
 
-'''names = []
-for _ in range(int(input())):
-    names.append(input())
-'''
-def fr(names):
-    d = dict()
-    unfNames = []
-    i = 0
-    while len(d) < len(names) or i < len(names):
-        fr = names[i]
-        names.remove(fr)
-        unf = ran.choice(names)
-        names.insert(i, fr)
-        if unf in unfNames:
-            continue
-        unfNames.append(unf)
-        d[fr] = unf
-        i += 1
+#n - count
+#m - length
 
-    for k, v in d.items():
-        print(k, '-', v)
+def gen(n, m):
+    baseUp = set(st.ascii_uppercase) - set('IO')
+    baseLow = set(st.ascii_lowercase) - set('lo')
+    baseDig = set(st.digits) - set('10')
+    base = baseUp | baseLow | baseDig
+    
+    for _ in range(n):
+        pas = p = ''
+        p += ran.choice(list(baseUp))
+        p += ran.choice(list(baseLow))
+        p += str(ran.choice(list(baseDig)))
+        pas += p
+        while len(pas) < m:
+            pas += ran.choice(list(base))
+        print(pas)
 
-fr(['Светлана Зуева', 'Аркадий Белых', 'Борис Боков'])
+gen(3, 6)
