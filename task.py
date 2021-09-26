@@ -1,5 +1,13 @@
-with open('population.txt', encoding='utf-8') as file:
-    coun = [line.strip().split('\t') for line in file.readlines()]
-    coun = filter(lambda c: 1 if c[0][0] == 'G' and int(c[1]) > 500000 else 0, coun)
-    for i in coun:
-        print(i[0])
+def read_csv():
+    with open('data.csv', encoding='utf-8') as file:
+        keys = file.readline().strip().split(',')
+        res = []
+        for line in file:
+            values = line.strip().split(',')
+            res.append({k: v for k, v in zip(keys, values)})
+        
+
+        print(*res, sep='\n\n')
+
+
+read_csv()
