@@ -1,10 +1,13 @@
-with open('nums.txt', encoding='utf-8') as file:
-    res = 0
-    for line in file.readlines():
-        for i in range(len(line)):
-            if not line[i].isdigit():
-                line = line.replace(line[i], ' ', 1)
-        res += sum(list(map(int, line.split())))
-
-        
-print(res)
+with open('file.txt', encoding='utf-8') as file:
+    text = file.read().replace('\n', ' ', 10000)
+    
+    letters = 0
+    for i in text:
+        if i.isalpha(): letters += 1
+    
+    words = len(text.split())
+    file.seek(0)
+    lines = len(file.readlines())
+    
+    
+    print(f'Input file contains:\n{letters} letters\n{words} words\n{lines} lines')
