@@ -1,12 +1,9 @@
-from functools import reduce
+ips = [input() for i in range(int(input()))]
 
 
-words = [input() for i in range(int(input()))]
-words = sorted(words)
-gcoe = ord('A')
-
-def gem(st):
-    return reduce(lambda su, s: su + ord(str(s).upper())-gcoe, st, 0)
+def totens(ip):
+    ip = list(map(int, ip.split('.')))
+    return ip[0] * 256**3 + ip[1] * 256**2 + ip[2] * 256 + ip[3]
 
 
-print(*sorted(words, key=gem), sep='\n')
+print(*sorted(ips, key=totens), sep='\n')
