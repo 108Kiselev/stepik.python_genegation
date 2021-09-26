@@ -1,13 +1,9 @@
-with open('file.txt', encoding='utf-8') as file:
-    text = file.read().replace('\n', ' ', 10000)
+from random import choice
+
+
+with open('first_names.txt', encoding='utf-8') as fn, open('last_names.txt', encoding='utf-8') as ln:
+    fnames = [line.strip() for line in fn.readlines()]
+    lnames = [line.strip() for line in ln.readlines()]
     
-    letters = 0
-    for i in text:
-        if i.isalpha(): letters += 1
-    
-    words = len(text.split())
-    file.seek(0)
-    lines = len(file.readlines())
-    
-    
-    print(f'Input file contains:\n{letters} letters\n{words} words\n{lines} lines')
+    for _ in range(3):
+        print(f'{choice(fnames)} {choice(lnames)}')
