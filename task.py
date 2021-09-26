@@ -1,9 +1,10 @@
-ips = [input() for i in range(int(input()))]
+with open('nums.txt', encoding='utf-8') as file:
+    res = 0
+    for line in file.readlines():
+        for i in range(len(line)):
+            if not line[i].isdigit():
+                line = line.replace(line[i], ' ', 1)
+        res += sum(list(map(int, line.split())))
 
-
-def totens(ip):
-    ip = list(map(int, ip.split('.')))
-    return ip[0] * 256**3 + ip[1] * 256**2 + ip[2] * 256 + ip[3]
-
-
-print(*sorted(ips, key=totens), sep='\n')
+        
+print(res)
